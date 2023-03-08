@@ -41,15 +41,12 @@ const controls = new OrbitControls(camera, renderer.domElement);
 
 function addStar() {
 	const geometry = new THREE.SphereGeometry(0.1);
-	const material = new THREE.MeshStandardMaterial({ color: 0xffffff,emissive:0xffffff });
+	const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
 	const star = new THREE.Mesh(geometry, material);
 
 	let [x, y, z] = Array(3)
 		.fill()
 		.map(() => THREE.MathUtils.randFloatSpread(200));
-		x += 80;
-		y += 80;
-		z += 80;
 
 	star.position.set(x, y, z);
 	scene.add(star);
