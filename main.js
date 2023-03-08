@@ -16,8 +16,8 @@ const renderer = new THREE.WebGL1Renderer({
 });
 
 const geometry = new THREE.SphereGeometry(10, 64, 32);
-const moonTexture = new THREE.TextureLoader().load('./public/img/moon.png');
-const moonMap = new THREE.TextureLoader().load('./public/img/NormalMap.png');
+const moonTexture = new THREE.TextureLoader().load('./moon.png');
+const moonMap = new THREE.TextureLoader().load('./NormalMap.png');
 const material = new THREE.MeshStandardMaterial({ map: moonTexture, normalMap: moonMap });
 const moon = new THREE.Mesh(geometry, material);
 const pointLight = new THREE.PointLight(0xffffff);
