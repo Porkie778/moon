@@ -1,6 +1,6 @@
 import './style.css';
 import * as THREE from 'three';
-import { OrbitalControls } from 'three/examples/jsm/controls/OrbitControls';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 const scene = new THREE.Scene();
 // Image Imports
 import moonTextureMap from './public/moon.png';
@@ -35,7 +35,7 @@ renderer.setSize(s.width, s.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.render(scene, camera);
 
-const controls = new OrbitalControls(camera, renderer.domElement);
+const controls = new OrbitControls(camera, renderer.domElement);
 
 function addStar() {
 	const geometry = new THREE.SphereGeometry(0.25);
@@ -44,11 +44,11 @@ function addStar() {
 
 	const [x, y, z] = Array(3)
 		.fill()
-		.map(() => THREE.MathUtils.randFloatSpread(100));
+		.map(() => THREE.MathUtils.randFloatSpread(200));
 	star.position.set(x, y, z);
 	scene.add(star);
 }
-Array(200).fill().forEach(addStar());
+Array(200).fill().forEach(addStar);
 
 function animate() {
 	requestAnimationFrame(animate);
