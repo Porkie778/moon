@@ -1,6 +1,8 @@
 import './style.css';
 import * as THREE from 'three';
 const scene = new THREE.Scene();
+import moonTextureMap from './public/moon.png';
+import moonNormalMap from './public/NormalMap.png';
 
 var s = {
 	width: window.innerWidth,
@@ -16,8 +18,8 @@ const renderer = new THREE.WebGL1Renderer({
 });
 
 const geometry = new THREE.SphereGeometry(10, 64, 32);
-const moonTexture = new THREE.TextureLoader().load('./moon.png');
-const moonMap = new THREE.TextureLoader().load('./NormalMap.png');
+const moonTexture = new THREE.TextureLoader().load(moonTextureMap);
+const moonMap = new THREE.TextureLoader().load(moonNormalMap);
 const material = new THREE.MeshStandardMaterial({ map: moonTexture, normalMap: moonMap });
 const moon = new THREE.Mesh(geometry, material);
 const pointLight = new THREE.PointLight(0xffffff);
