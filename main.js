@@ -1,4 +1,6 @@
 import './style.css';
+import './moon.png';
+import './NormalMap.png';
 import * as THREE from 'three';
 const scene = new THREE.Scene();
 
