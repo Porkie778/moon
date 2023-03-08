@@ -3,8 +3,10 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 const scene = new THREE.Scene();
 // Image Imports
-import moonTextureMap from './public/moon.png';
-import moonNormalMap from './public/NormalMap.png';
+// import moonTextureMap from './public/moon.png';
+// import moonNormalMap from './public/NormalMap.png';
+import moonTextureMap from './moon.png';
+import moonNormalMap from './NormalMap.png';
 
 // Set up variables for canvas size
 var s = {
