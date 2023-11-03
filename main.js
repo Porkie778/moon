@@ -1,13 +1,13 @@
-import './style.css';
-import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import "./style.css";
+import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 const scene = new THREE.Scene();
 // Image Imports
 // import moonTextureMap from './public/moon.png';
 // import moonNormalMap from './public/NormalMap.png';
-import moonTextureMap from './moon.png';
-import moonNormalMap from './NormalMap.png';
-import worldTexture from './stars.jpg';
+import moonTextureMap from "./moon.png";
+import moonNormalMap from "./NormalMap.png";
+import worldTexture from "./stars.jpg";
 
 // Set up variables for canvas size
 var s = {
@@ -21,14 +21,17 @@ scene.add(camera);
 
 // assign a WebGl renderer to the canvas
 const renderer = new THREE.WebGL1Renderer({
-	canvas: document.querySelector('#app'),
+	canvas: document.querySelector("#app"),
 	antialias: true,
 });
 // Set up the geometry, mapping, and lighting for the central object (moon)
 const geometry = new THREE.SphereGeometry(10);
 const moonTexture = new THREE.TextureLoader().load(moonTextureMap);
 const moonMap = new THREE.TextureLoader().load(moonNormalMap);
-const material = new THREE.MeshStandardMaterial({ map: moonTexture, normalMap: moonMap });
+const material = new THREE.MeshStandardMaterial({
+	map: moonTexture,
+	normalMap: moonMap,
+});
 const moon = new THREE.Mesh(geometry, material);
 
 const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.1);
@@ -62,7 +65,11 @@ controls.enableZoom = false;
 controls.enablePan = false;
 function addStar() {
 	const geometry = new THREE.SphereGeometry(0.1);
-	const material = new THREE.MeshStandardMaterial({ color: 0xffffff, emissive: true, emissiveIntensity: 0.7 });
+	const material = new THREE.MeshStandardMaterial({
+		color: 0xffffff,
+		emissive: true,
+		emissiveIntensity: 0.7,
+	});
 	const star = new THREE.Mesh(geometry, material);
 
 	let [x, y, z] = Array(3)
@@ -81,7 +88,7 @@ function animate() {
 }
 animate();
 
-window.addEventListener('resize', onWindowResize, false);
+window.addEventListener("resize", onWindowResize, false);
 
 function onWindowResize() {
 	camera.aspect = window.innerWidth / window.innerHeight;
